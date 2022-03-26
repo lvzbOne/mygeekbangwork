@@ -14,6 +14,12 @@ public class SemaphoreDemo2 {
          * semaphore.acquire(3),semaphore.release(3) 日志每次显示1个task 进行处理
          * semaphore.acquire(4),semaphore.release(3) 日志打印2个后直接阻塞死了
          * 这是为何？？？？？
+         *
+         * 信号量就是资源，假设默认设置初始时5个信号量，20个线程抢，如果acquire(4),release(3)。
+         * 第一个线程消耗4个信号量，开始执行，此时总信号量个数就变成1，其它线程获取不到4个信号量，就等待阻塞了，
+         * 当第一个线程执行完后，放回3个信号量，此时总信号量个数就变成4，阻塞的线程里就会有一个线程可以消费这四个信号量开始执行，
+         * 此时总信号量个数就是0，其它18个线程就又阻塞等待了，当这个线程执行完后，放回3个信号量，此时总信号量就变成3，
+         * 余下18个线程再也获取不到4个信号量就永久阻塞了。
          */
         ExecutorService exec = Executors.newCachedThreadPool();
 
