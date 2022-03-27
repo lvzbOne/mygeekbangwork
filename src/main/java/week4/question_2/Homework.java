@@ -1,4 +1,4 @@
-package week4.question_1.conc0303;
+package week4.question_2;
 
 /**
  * 本周作业：（必做）思考有多少种方式，在main函数启动一个新线程或线程池，
@@ -7,7 +7,7 @@ package week4.question_1.conc0303;
  * <p>
  * 一个简单的代码参考：
  */
-public class Homework03 {
+public class Homework {
 
     public static void main(String[] args) {
 
@@ -26,7 +26,7 @@ public class Homework03 {
         // 然后退出main线程
     }
 
-    private static int sum() {
+    public static int sum() {
         return fibo(36);
     }
 
