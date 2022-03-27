@@ -20,6 +20,8 @@ public class SemaphoreDemo2 {
          * 当第一个线程执行完后，放回3个信号量，此时总信号量个数就变成4，阻塞的线程里就会有一个线程可以消费这四个信号量开始执行，
          * 此时总信号量个数就是0，其它18个线程就又阻塞等待了，当这个线程执行完后，放回3个信号量，此时总信号量就变成3，
          * 余下18个线程再也获取不到4个信号量就永久阻塞了。
+         *
+         * 看jdk源码，acquire(),release()不带参数默认就是使用的1个信号量。
          */
         ExecutorService exec = Executors.newCachedThreadPool();
 
