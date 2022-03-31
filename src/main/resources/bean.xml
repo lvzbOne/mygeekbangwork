@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="student01" class="week5.question_2.xml_assemble.Student">
+        <property name="id" value="001"/>
+        <property name="name" value="黄昇平"/>
+    </bean>
+    <bean id="student02" class="week5.question_2.xml_assemble.Student">
+        <property name="id" value="002"/>
+        <property name="name" value="吕志彪"/>
+    </bean>
+
+    <bean id="school" class="week5.question_2.xml_assemble.School">
+    </bean>
+
+    <bean id="klass" class="week5.question_2.xml_assemble.Klass">
+        <property name="students">
+            <list>
+                <ref bean="student01"/>
+                <ref bean="student02"/>
+                <bean class="week5.question_2.xml_assemble.Student">
+                    <property name="id" value="003"/>
+                    <property name="name" value="邓剑"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <!--    <bean id="person"-->
+    <!--          class="io.kimmking.spring03lifecycle.Person"-->
+    <!--          init-method="myInit"-->
+    <!--          destroy-method="myDestory"-->
+    <!--          scope="singleton">-->
+    <!--        <property name="name" value="吕起凤"/>-->
+    <!--        <property name="address" value="杭州"/>-->
+    <!--        <property name="phone" value="1477984146"/>-->
+    <!--    </bean>-->
+
+
+</beans>

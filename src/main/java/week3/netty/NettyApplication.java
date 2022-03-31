@@ -3,7 +3,7 @@ package week3.netty;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+// @SpringBootApplication
 public class NettyApplication {
 
 	public static void main(String[] args) {
