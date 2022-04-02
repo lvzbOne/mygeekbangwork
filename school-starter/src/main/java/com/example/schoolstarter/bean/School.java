@@ -1,7 +1,6 @@
-package week5.question_2.xml_assemble;
+package com.example.schoolstarter.bean;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
@@ -10,11 +9,10 @@ import javax.annotation.Resource;
  * @description: TODO
  * @date 2022/3/31
  */
-@Component // 测试XML时注释掉@Component
 public class School implements ISchool {
 
     // Resource
-    @Autowired(required = true) //primary
+    @Autowired() //primary
     private Klass class1;
 
     @Resource

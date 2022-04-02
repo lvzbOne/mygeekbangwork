@@ -327,9 +327,60 @@ class XmlAssembleTest {
 }
 ```
 ## 作业三 
-> （选做）实现一个 Spring XML 自定义配置，配置一组 Bean，例如：Student/Klass/School。
+> 3.（选做）实现一个 Spring XML 自定义配置，配置一组 Bean，例如：Student/Klass/School。
 
 在作业二的xml 装配 bean 一块顺带做了
+
+## 作业八
+> 8.（必做）给前面课程提供的 Student/Klass/School 实现自动配置和 Starter。
+
+> 做本作业遇到了bean覆盖冲突问题：自定义starter和@importSource加载的xml里的bean名称相同导致启动失败。解决方式是把xml里的bean用配置类的方式自动扫描注入IOC就不会冲突，这个问题告诉我们能不用xml配置就不用......
+
+1. 添加`starter`模块`school-starter`
+![在这里插入图片描述](https://img-blog.csdnimg.cn/864fc3e3aa33494db7da4d837144d37c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBATHZRaUZlbg==,size_17,color_FFFFFF,t_70,g_se,x_16)
+   
+2. 添加配置类信息和META-INF目录，以及spring.factories文件
+```java
+/**
+ * 配置类
+ * @author 起凤
+ * @description: TODO
+ * @date 2022/4/2
+ */
+@Configuration
+public class AutoConfig {
+
+    @Bean
+    @ConditionalOnMissingBean(Student.class)
+    public Student student() {
+        return Student.create();
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(Klass.class)
+    public Klass klass() {
+        Klass klass = new Klass();
+        List<Student> students = new ArrayList<>();
+        students.add(Student.create());
+        klass.setStudents(students);
+        return klass;
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(School.class)
+    public School school() {
+        return new School();
+    }
+}
+``` 
+```java
+#指定自动配置类 多个配置类,\分隔
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.example.schoolstarter.config.AutoConfig
+```
+```java
+maven 执行 clean 再 instal 打包到本地仓库，然后主项目里引入坐标GAV即可使用了
+```
 
 ## 作业十
 > 10.（必做）研究一下 JDBC 接口和数据库连接池，掌握它们的设计和用法： 

@@ -1,14 +1,10 @@
-package week5.question_2.xml_assemble;
+package com.example.schoolstarter.bean;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
@@ -16,8 +12,8 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @ToString
-@Component // 测试XML时注释掉@Component
 public class Student implements Serializable, BeanNameAware, ApplicationContextAware {
 
 
