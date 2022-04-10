@@ -3,7 +3,10 @@ package com.example.schoolstarter.config;
 import com.example.schoolstarter.bean.Klass;
 import com.example.schoolstarter.bean.School;
 import com.example.schoolstarter.bean.Student;
+import com.example.schoolstarter.properties.SchoolProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,7 +19,11 @@ import java.util.List;
  * @date 2022/4/2
  */
 @Configuration
+@EnableConfigurationProperties(value = SchoolProperties.class)
 public class AutoConfig {
+
+    @Autowired
+    private SchoolProperties schoolProperties;
 
     @Bean
     @ConditionalOnMissingBean(Student.class)
@@ -37,6 +44,7 @@ public class AutoConfig {
     @Bean
     @ConditionalOnMissingBean(School.class)
     public School school() {
+        System.out.println("============> " + schoolProperties.getPrefix());
         return new School();
     }
 }
