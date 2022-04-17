@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.shardingsphere_work.mapper.OrdersMapper">
+
+    <sql id="Orders_All_Column_List">
+        id,
+        order_code,
+        shop_code,
+        goods_code,
+        identify_card,
+        phone,
+        price,
+        goods_num,
+        remark,
+        is_effective,
+        store_date,
+        gmt_create,
+        gmt_modified
+    </sql>
+
+    <sql id="Orders_Insert_Column_List">
+        order_code,
+        shop_code,
+        goods_code,
+        identify_card,
+        phone,
+        price,
+        goods_num,
+        remark,
+        is_effective,
+        store_date
+    </sql>
+
+    <select id="selectAllOrders" resultType="com.example.shardingsphere_work.bean.Orders">
+        select <include refid="Orders_All_Column_List"/>
+        from orders
+    </select>
+
+    <insert id="insertOrderList">
+        insert into orders
+           (<include refid="Orders_Insert_Column_List"/>)
+        values
+        <foreach collection="data" item="item" separator=",">
+            (#{item.orderCode},
+             #{item.shopCode},
+             #{item.goodsCode},
+             #{item.identifyCard},
+             #{item.phone},
+             #{item.price},
+             #{item.goodsNum},
+             #{item.remark},
+             #{item.isEffective},
+             #{item.storeDate}
+            )
+        </foreach>
+
+    </insert>
+
+</mapper>

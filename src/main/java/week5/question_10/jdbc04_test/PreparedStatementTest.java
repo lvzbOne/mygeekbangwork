@@ -15,12 +15,13 @@ public class PreparedStatementTest {
     private static String PASSWORD;
 
     private static final String HIKARI_FILE_PATH = "hikari.properties";
+
     static {
         try {
-            DRIVER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"driver");
-            URL = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"url");
-            USER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"user");
-            PASSWORD = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"password");
+            DRIVER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "driver");
+            URL = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "url");
+            USER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "user");
+            PASSWORD = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "password");
             // 初始化参数时就进行驱动预加载
             Class.forName(DRIVER);
         } catch (IOException e) {
@@ -91,7 +92,7 @@ public class PreparedStatementTest {
         }
     }
 
-    private static void batchInsert(String[] sqlArr) {
+    public static void batchInsert(String sql, Integer number) {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
             // 保存当前自动提交的状态
             boolean autoCommit = conn.getAutoCommit();
@@ -99,9 +100,11 @@ public class PreparedStatementTest {
             // 如果吧下面1、2、3注释下的代码注释掉，那么批量操作就不会有事务支持，会出现部分成功部分失败！
             // 1
             conn.setAutoCommit(false);
-            try (Statement statement = conn.createStatement()) {
-                for (String sql : sqlArr) {
-                    statement.addBatch(sql);
+            try (PreparedStatement statement = conn.prepareStatement(sql)) {
+                for (int i = 0; i < number; i++) {
+                    statement.setString(1, "'" + i + "'");
+                    // 预处理时不需要给addBatch()内放入sql
+                    statement.addBatch();
                 }
                 statement.executeBatch();
                 // 2

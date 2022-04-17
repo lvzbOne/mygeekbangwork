@@ -5,6 +5,9 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/school-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/homework/dynamic_data_source/pom.xml" />
+        <option value="$PROJECT_DIR$/homework/pom.xml" />
+        <option value="$PROJECT_DIR$/homework/shardingSphere_work/pom.xml" />
       </list>
     </option>
   </component>

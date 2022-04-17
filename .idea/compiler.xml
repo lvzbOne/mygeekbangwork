@@ -7,19 +7,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="shardingsphere_work" />
         <module name="mygeekbangwork" />
+        <module name="homework" />
         <module name="school-starter" />
+        <module name="dynamic_data_source" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="dynamic_data_source" target="1.8" />
+      <module name="homework" target="1.8" />
       <module name="mygeekbangwork" target="1.8" />
       <module name="school-starter" target="1.8" />
+      <module name="shardingsphere_work" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="dynamic_data_source" options="-parameters" />
+      <module name="homework" options="-parameters" />
       <module name="mygeekbangwork" options="-parameters" />
       <module name="school-starter" options="-parameters" />
+      <module name="shardingsphere_work" options="-parameters" />
     </option>
   </component>
 </project>

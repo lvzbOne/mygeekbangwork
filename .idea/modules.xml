@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/homework/dynamic_data_source/dynamic_data_source.iml" filepath="$PROJECT_DIR$/homework/dynamic_data_source/dynamic_data_source.iml" />
+      <module fileurl="file://$PROJECT_DIR$/homework/homework.iml" filepath="$PROJECT_DIR$/homework/homework.iml" />
       <module fileurl="file://$PROJECT_DIR$/mygeekbangwork.iml" filepath="$PROJECT_DIR$/mygeekbangwork.iml" />
       <module fileurl="file://$PROJECT_DIR$/school-starter/school-starter.iml" filepath="$PROJECT_DIR$/school-starter/school-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/homework/shardingSphere_work/shardingsphere_work.iml" filepath="$PROJECT_DIR$/homework/shardingSphere_work/shardingsphere_work.iml" />
     </modules>
   </component>
 </project>

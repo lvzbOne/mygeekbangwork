@@ -19,10 +19,10 @@ public class ConnectMySql {
 
     static {
         try {
-            DRIVER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"driver");
-            URL = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"url");
-            USER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"user");
-            PASSWORD = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"password");
+            DRIVER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "driver");
+            URL = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "url");
+            USER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "user");
+            PASSWORD = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "password");
             /// 初始化参数时就进行驱动预加载,现在新版本的mysql-jdbc 驱动已经可以省去这一步了
             /// Class.forName(DRIVER);
         } catch (IOException e) {
@@ -78,6 +78,24 @@ public class ConnectMySql {
                 // 5. 执行SQL语句
                 statement.executeUpdate(target);
             }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public static void batchInsert(String sql, Integer number) {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             Statement statement = conn.createStatement();
+        ) {
+            // 开启事务
+            conn.setAutoCommit(false);
+            for (int i = 0; i < number; i++) {
+                statement.addBatch(sql.replaceAll("\\?", "'" + i + "'"));
+            }
+            // 执行SQL语句
+            statement.executeBatch();
+            // 提交事务
+            conn.commit();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
