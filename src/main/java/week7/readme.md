@@ -5,8 +5,7 @@
 ### 完成情况说明
 - 插入100W条耗时如下图 预编译批量插入的情况下 104962ms,非预编译批量插入耗时：124000ms,单条插入太久了。测试代码地址: [100W条数据批量插入测试](https://github.com/lvzbOne/mygeekbangwork/blob/master/src/test/java/week5/question_10/jdbc04_test/DataSourceInsertTest.java)
   ![在这里插入图片描述](https://img-blog.csdnimg.cn/7580d197a39747b883d74ae3253921fc.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBATHZRaUZlbg==,size_20,color_FFFFFF,t_70,g_se,x_16)
-
-TODO:待完成
+  
 ## 选做作业八
 > 8.（选做）配置一遍异步复制，半同步复制、组复制
 > 
