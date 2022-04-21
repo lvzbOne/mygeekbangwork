@@ -8,6 +8,7 @@
 ### 作业完成情况说明
 
 - [作业代码地址](https://github.com/lvzbOne/mygeekbangwork/tree/master/homework/shardingsphere_proxy/src)
+- [测试代码地址](https://github.com/lvzbOne/mygeekbangwork/blob/master/homework/shardingsphere_proxy/src/test/java/com/example/shardingsphere_proxy/service/impl/OrderServiceImplTest.java)  
 - [sql文件](https://github.com/lvzbOne/mygeekbangwork/tree/master/homework/shardingsphere_proxy/src/main/resources/sql)  
 - [操作演示笔记](./windows环境下使用ShardingSphere-Proxy设置分库分表初体验.md)
 
