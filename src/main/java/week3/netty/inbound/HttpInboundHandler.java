@@ -44,7 +44,7 @@ public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
 
             handler.handle(fullRequest, ctx, filter);
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             ReferenceCountUtil.release(msg);

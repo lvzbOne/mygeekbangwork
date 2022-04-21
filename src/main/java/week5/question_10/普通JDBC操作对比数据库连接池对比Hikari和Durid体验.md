@@ -649,7 +649,7 @@ class DataSourceSelectTest {
 >
 > 1. 不用连接池非预编译耗时：15798ms~16701ms
 > 2. 不用连接池预编译耗时：16092ms~16444ms
-> 3.  采用`Durid` 连接池耗时：2080~2186ms
+> 3. 采用`Durid` 连接池耗时：2080~2186ms
 > 4. 采用`Hikari`连接池耗时：1892~2101ms
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/33f6b75f34924f9ba87bacdaf2b85483.png)
@@ -670,7 +670,7 @@ class DataSourceSelectTest {
 >
 > 1. 不用连接池非预编译耗时：3907 ~ 4638ms
 > 2. 不用连接池预编译耗时：3822 ~ 4145ms
-> 3.  采用`Durid` 连接池耗时：535 ~ 543ms
+> 3. 采用`Durid` 连接池耗时：535 ~ 543ms
 > 4. 采用`Hikari`连接池耗时：449 ~ 480ms
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/60c8016898544c86bc278e39c0dbbae8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBATHZRaUZlbg==,size_20,color_FFFFFF,t_70,g_se,x_16)

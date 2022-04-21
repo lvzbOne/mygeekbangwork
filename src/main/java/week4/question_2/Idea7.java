@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 方法7：主线程内生命 CountDownLatch 子线程 countDown，然后主线程调用
- *       count.await() 阻塞等待子线程执行完毕返回
+ * count.await() 阻塞等待子线程执行完毕返回
  *
  * @author 起凤
  * @description: TODO

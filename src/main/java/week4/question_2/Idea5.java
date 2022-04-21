@@ -20,7 +20,7 @@ public class Idea5 {
         // 主线程阻塞让步 子线程持有锁执行
         Thread.sleep(1000L);
         System.out.println("不一定能保证获取到值：" + target.getResult());
-        
+
         lock.lock();
         try {
             // 24157817

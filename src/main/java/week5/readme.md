@@ -1,6 +1,7 @@
 # 第五周作业概览
 
 ## 作业一
+
 > （选做）使 Java 里的动态代理，实现一个简单的 AOP。
 
 简单的使用JDK动态代理实现了一个代理工厂用于获取代理对象，对代理对象的方法进行增强，并分析了一波代理类的字节码反编译后的情况
@@ -237,6 +238,7 @@ public final class $Proxy0 extends Proxy implements Dog {
 ```
 
 ## 作业二
+
 > （必做）写代码实现 Spring Bean 的装配，方式越多越好（XML、Annotation 都可以）, 提交到 GitHub。
 
 写了三种装配Bean的方式 测试代码分别在`mygeekbangwork\src\test\java\week5\question_2\`下的`auto_assemble`,`config_assemble`,`xml_assemble`中
@@ -326,20 +328,24 @@ class XmlAssembleTest {
     }
 }
 ```
-## 作业三 
+
+## 作业三
+
 > 3.（选做）实现一个 Spring XML 自定义配置，配置一组 Bean，例如：Student/Klass/School。
 
 在作业二的xml 装配 bean 一块顺带做了
 
 ## 作业八
+
 > 8.（必做）给前面课程提供的 Student/Klass/School 实现自动配置和 Starter。
 
 > 做本作业遇到了bean覆盖冲突问题：自定义starter和@importSource加载的xml里的bean名称相同导致启动失败。解决方式是把xml里的bean用配置类的方式自动扫描注入IOC就不会冲突，这个问题告诉我们能不用xml配置就不用......
 
 1. 添加`starter`模块`school-starter`
-![在这里插入图片描述](https://img-blog.csdnimg.cn/864fc3e3aa33494db7da4d837144d37c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBATHZRaUZlbg==,size_17,color_FFFFFF,t_70,g_se,x_16)
-   
+   ![在这里插入图片描述](https://img-blog.csdnimg.cn/864fc3e3aa33494db7da4d837144d37c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBATHZRaUZlbg==,size_17,color_FFFFFF,t_70,g_se,x_16)
+
 2. 添加配置类信息和META-INF目录，以及spring.factories文件
+
 ```java
 /**
  * 配置类
@@ -373,19 +379,22 @@ public class AutoConfig {
     }
 }
 ``` 
+
 ```java
 #指定自动配置类 多个配置类,\分隔
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.example.schoolstarter.config.AutoConfig
 ```
+
 ```java
 maven 执行 clean 再 instal 打包到本地仓库，然后主项目里引入坐标GAV即可使用了
 ```
 
 ## 作业十
-> 10.（必做）研究一下 JDBC 接口和数据库连接池，掌握它们的设计和用法： 
-> 1）使用 JDBC 原生接口，实现数据库的增删改查操作。 
-> 2）使用事务，PrepareStatement 方式，批处理方式，改进上述操作。 
+
+> 10.（必做）研究一下 JDBC 接口和数据库连接池，掌握它们的设计和用法：
+> 1）使用 JDBC 原生接口，实现数据库的增删改查操作。
+> 2）使用事务，PrepareStatement 方式，批处理方式，改进上述操作。
 > 3）配置 Hikari 连接池，改进上述操作。提交代码到 GitHub。
 
 # 普通JDBC操作对比数据库连接池对比Hikari和Durid初体验
@@ -1039,7 +1048,7 @@ class DataSourceSelectTest {
 >
 > 1. 不用连接池非预编译耗时：15798ms~16701ms
 > 2. 不用连接池预编译耗时：16092ms~16444ms
-> 3.  采用`Durid` 连接池耗时：2080~2186ms
+> 3. 采用`Durid` 连接池耗时：2080~2186ms
 > 4. 采用`Hikari`连接池耗时：1892~2101ms
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/33f6b75f34924f9ba87bacdaf2b85483.png)
@@ -1060,7 +1069,7 @@ class DataSourceSelectTest {
 >
 > 1. 不用连接池非预编译耗时：3907 ~ 4638ms
 > 2. 不用连接池预编译耗时：3822 ~ 4145ms
-> 3.  采用`Durid` 连接池耗时：535 ~ 543ms
+> 3. 采用`Durid` 连接池耗时：535 ~ 543ms
 > 4. 采用`Hikari`连接池耗时：449 ~ 480ms
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/60c8016898544c86bc278e39c0dbbae8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBATHZRaUZlbg==,size_20,color_FFFFFF,t_70,g_se,x_16)

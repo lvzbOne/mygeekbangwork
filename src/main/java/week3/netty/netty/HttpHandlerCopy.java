@@ -41,7 +41,7 @@ public class HttpHandlerCopy extends ChannelInboundHandlerAdapter {
                 handlerTest(fullRequest, ctx, "hello,others");
             }
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             ReferenceCountUtil.release(msg);
@@ -64,7 +64,7 @@ public class HttpHandlerCopy extends ChannelInboundHandlerAdapter {
             response.headers().setInt("Content-Length", response.content().readableBytes());
 
         } catch (Exception e) {
-            System.out.println("处理出错:"+e.getMessage());
+            System.out.println("处理出错:" + e.getMessage());
             response = new DefaultFullHttpResponse(HTTP_1_1, NO_CONTENT);
         } finally {
             if (fullRequest != null) {

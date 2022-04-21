@@ -7,12 +7,12 @@ import java.util.List;
 
 @Data
 @Component // 测试XML时注释掉@Component
-public class Klass { 
-    
+public class Klass {
+
     List<Student> students;
-    
-    public void dong(){
+
+    public void dong() {
         System.out.println(this.getStudents());
     }
-    
+
 }

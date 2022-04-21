@@ -38,10 +38,10 @@ public class PreparedStatementTest {
 
     static {
         try {
-            DRIVER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"driver");
-            URL = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"url");
-            USER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"user");
-            PASSWORD = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"password");
+            DRIVER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "driver");
+            URL = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "url");
+            USER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "user");
+            PASSWORD = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "password");
             // 初始化参数时就进行驱动预加载
             Class.forName(DRIVER);
         } catch (IOException e) {
@@ -59,10 +59,10 @@ public class PreparedStatementTest {
      * @throws ClassNotFoundException
      */
     private static void initConnectionParam() throws IOException, ClassNotFoundException {
-        DRIVER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"driver");
-        URL = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"url");
-        USER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"user");
-        PASSWORD = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH,"password");
+        DRIVER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "driver");
+        URL = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "url");
+        USER = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "user");
+        PASSWORD = JdbcUtils.getPropertyValue(HIKARI_FILE_PATH, "password");
 
         // 初始化参数时就进行驱动预加载
         Class.forName(DRIVER);

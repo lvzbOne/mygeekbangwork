@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Data
 
-public class TileRoofedHouse  implements Architecture{
+public class TileRoofedHouse implements Architecture {
     private TileHouse tileHouse;
     private BrickHouse brickHouse;
 

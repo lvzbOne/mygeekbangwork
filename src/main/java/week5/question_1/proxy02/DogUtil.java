@@ -10,7 +10,7 @@ public class DogUtil {
         System.out.println("========= 前置处理方法 ==========");
     }
 
-    public void after(){
+    public void after() {
         System.out.println("========= 后置处理方法 ==========");
     }
 }

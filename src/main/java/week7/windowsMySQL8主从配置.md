@@ -313,13 +313,13 @@ sync_relay_log_info=10000
 loose_mysqlx_port=33060
 ```
 
-###  （二）执行命令
+### （二）执行命令
 
 管理员的模式打开cmd,进入mysql-8-master内的bin 目录下执行：
 
 1. 安装注册服务： `mysqld -insall MySQL-Master`
 
->  安装完mysql服务后可以在任务管理器中看到该服务，启动该服务时如果报服务名错误或者找不到需要检查服务名是否正确。
+> 安装完mysql服务后可以在任务管理器中看到该服务，启动该服务时如果报服务名错误或者找不到需要检查服务名是否正确。
 
 <img src="https://img-blog.csdnimg.cn/b18b507c01d4416b8330dc53b758aabe.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBATHZRaUZlbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述" style="zoom: 67%;" />
 
@@ -395,15 +395,15 @@ sql-mode="STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION"
 
 ## 四、主从关联配置
 
-> 主服务需要提供一个账号给从服务建立连接复制binlog日志。这里给主mysql服务创建一个 名为 master的账号，密码 123456  。从服务需要自己加到主服务的从节点中，注意从服务执行`show slave status \G`查看slave状态时 的几个核心参数：
+> 主服务需要提供一个账号给从服务建立连接复制binlog日志。这里给主mysql服务创建一个 名为 master的账号，密码 123456 。从服务需要自己加到主服务的从节点中，注意从服务执行`show slave status \G`查看slave状态时 的几个核心参数：
 >
-> ​            Slave_IO_Running: Yes
-> ​            Slave_SQL_Running: Yes
+> ​ Slave_IO_Running: Yes
+> ​ Slave_SQL_Running: Yes
 >
-> ​              Last_IO_Errno: 0
-> ​              Last_IO_Error:
-> ​              Last_SQL_Errno: 0
-> ​              Last_SQL_Error:
+> ​ Last_IO_Errno: 0
+> ​ Last_IO_Error:
+> ​ Last_SQL_Errno: 0
+> ​ Last_SQL_Error:
 >
 > **Slave_IO_Running 和 Slave_SQL_Running 都为yes是正常的。为其它值都是不成功的。此时需要关注 Last_SQL_Error，Last_IO_Error的报错提示，处理异常。**
 
@@ -416,8 +416,8 @@ sql-mode="STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION"
 - 开启主从同步：`start slave;`
 - 关闭主从同步：`stop slave;`
 - 查看提示信息：`show warnings;`
--  查看 slave 的状态（注意：\G后面没有分号的） ：`show slave status \G`
--  `show binlog events;`   #只查看第一个binlog文件的内容
+- 查看 slave 的状态（注意：\G后面没有分号的） ：`show slave status \G`
+- `show binlog events;`   #只查看第一个binlog文件的内容
 - `show binlog events in 'mysql-bin.000002';`#查看指定binlog文件的内容
 - `show binary logs;`  #获取binlog文件列表
 - `show master status;` #查看当前正在写入的binlog文件

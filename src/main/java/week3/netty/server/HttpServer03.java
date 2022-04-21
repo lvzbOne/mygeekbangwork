@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 
 // 创建了一个固定大小的线程池处理请求
 public class HttpServer03 {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         // TODO:线程池的知识，需要补充, Runtime 类和系统类需要补充
         ExecutorService executorService = Executors.newFixedThreadPool(
                 Runtime.getRuntime().availableProcessors() * 4);
@@ -23,7 +23,7 @@ public class HttpServer03 {
             }
         }
     }
-    
+
     private static void service(Socket socket) {
         try {
             PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);

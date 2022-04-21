@@ -14,7 +14,7 @@ public class ProxyFactory {
         MyInvocationHandler handler = new MyInvocationHandler();
         handler.setTarget(o);
 //        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
-       // System.getProperties().put("jdk.proxy.ProxyGenerator.saveGeneratedFiles", "true");
+        // System.getProperties().put("jdk.proxy.ProxyGenerator.saveGeneratedFiles", "true");
         return Proxy.newProxyInstance(o.getClass().getClassLoader(), o.getClass().getInterfaces(), handler);
     }
 }

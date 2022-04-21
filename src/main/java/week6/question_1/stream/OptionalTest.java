@@ -1,6 +1,5 @@
 package week6.question_1.stream;
 
-import com.sun.xml.internal.bind.v2.TODO;
 
 import java.util.*;
 import java.util.stream.Collectors;

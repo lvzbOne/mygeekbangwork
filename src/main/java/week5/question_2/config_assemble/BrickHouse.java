@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @date 2022/3/31
  */
 
-public class BrickHouse implements Architecture{
+public class BrickHouse implements Architecture {
     @Override
     public void info() {
         System.out.println("我是砖房子！");

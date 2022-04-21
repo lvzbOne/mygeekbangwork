@@ -24,7 +24,7 @@ public class FutureTask1 {
 //            }
 //        });
 //        executor.submit(task);
-        
+
         try {
             System.out.println("result: " + task.get());
         } catch (InterruptedException e) {
@@ -33,5 +33,5 @@ public class FutureTask1 {
             e.printStackTrace();
         }
     }
-    
+
 }

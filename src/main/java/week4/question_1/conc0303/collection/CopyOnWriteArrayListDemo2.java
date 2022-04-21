@@ -24,9 +24,9 @@ public class CopyOnWriteArrayListDemo2 {
             public void run() {
                 while (true) {
                     if (list.size() > 0) {    // todo ： 下一个get操作执行时，size可能已经是0了
-                        System.out.println("前: "  +list.size());
+                        System.out.println("前: " + list.size());
                         String content = list.get(list.size() - 1);
-                        System.out.println("后: "  +list.size());
+                        System.out.println("后: " + list.size());
                     } else {
                         break;
                     }

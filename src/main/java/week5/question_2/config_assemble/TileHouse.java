@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @description: TODO
  * @date 2022/3/31
  */
-public class TileHouse  implements Architecture{
+public class TileHouse implements Architecture {
     @Override
     public void info() {
         System.out.println("我是瓦房子！");
