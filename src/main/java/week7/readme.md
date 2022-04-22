@@ -30,7 +30,7 @@
 ### 完成情况说明
 
 - 通过继承 `Spring` 的`AbstractRoutingDataSource` 完成了实现动态路由机制。设置了1主2从，在自定义切面里跟具切面注解进行自动切换，主服务用于写操作，读时采用轮询机制。
-  代码地址 [读写分离 - 动态切换数据源版本 1.0]()
+  代码地址 [读写分离 - 动态切换数据源版本 1.0](https://github.com/lvzbOne/mygeekbangwork/blob/master/homework/dynamic_data_source/src/test/java/com/example/dynamic_data_source/service/impl/OrderServiceImplTest.java)
   。   [单元测试类代码地址](https://github.com/lvzbOne/mygeekbangwork/blob/master/homework/dynamic_data_source/src/test/java/com/example/dynamic_data_source/service/impl/OrderServiceImplTest.java)
 - 具体实操文档笔记和踩坑记录后续整理补齐。[2022-04-17,2022-06-01]
 
