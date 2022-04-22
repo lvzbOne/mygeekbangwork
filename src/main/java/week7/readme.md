@@ -19,7 +19,7 @@
 
 ### 完成情况说明
 
-- 完成配置基于windows系统的mysql8主从复制的异步复制 [windows下mysql8主从异步配置](./windows下mysql8主从异步配置.md)。
+- 完成配置基于windows系统的mysql8主从复制的异步复制 [windows下mysql8主从异步配置](https://github.com/lvzbOne/mygeekbangwork/blob/master/src/main/java/week7/windowsMySQL8%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE.md)
 - 半同步复制、组复制后面有时间再完善。
 
 ## 必做作业九

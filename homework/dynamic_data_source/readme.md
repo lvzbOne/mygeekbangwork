@@ -1,0 +1,3 @@
+## 运行结果图日志 写时进入aop 切换数据源为master,读时 切换数据源为slave
+![在这里插入图片描述](https://img-blog.csdnimg.cn/72374b1b1e6c4960a11aa2d6b270459e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBATHZRaUZlbg==,size_20,color_FFFFFF,t_70,g_se,x_16)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/56437ab400d242cc9f3638335b76b88a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBATHZRaUZlbg==,size_20,color_FFFFFF,t_70,g_se,x_16)
