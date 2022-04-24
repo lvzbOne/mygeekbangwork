@@ -383,6 +383,8 @@ class OrderServiceImplTest {
 
 }
 ```
+## 五、踩坑
+- 数据库里的bigint实际上对应java的long类型，如果使用BigInt 操作时会报错，本作业就遇到了 [详情地址](https://github.com/apache/shardingsphere/issues/13857)
 
 ## 参考资料
 - [使用 ShardingSphereDataSource](https://shardingsphere.apache.org/document/5.0.0-alpha/cn/user-manual/shardingsphere-jdbc/usage/sharding/yaml/)
