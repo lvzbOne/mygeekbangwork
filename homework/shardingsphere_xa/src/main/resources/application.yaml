@@ -1,0 +1,9 @@
+#mybatis:
+#  type-aliases-package: com.example.shardingsphere_xa.bean
+#  mapper-locations: classpath:mapper/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+
+#logging:
+#  level:
+#   com.example.shardingsphere_xa.mapper: debug

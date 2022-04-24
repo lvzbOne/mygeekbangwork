@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.shardingsphere_xa.mapper.OrdersMapper">
+
+    <sql id="Orders_All_Column_List">
+        order_id,
+        user_id,
+        status
+    </sql>
+
+    <sql id="Orders_Insert_Column_List">
+        user_id,
+        status
+    </sql>
+
+
+    <select id="selectAllOrders" resultType="com.example.shardingsphere_xa.bean.Order">
+        select <include refid="Orders_All_Column_List"/>
+        from t_order
+    </select>
+
+    <insert id="insertOrderList">
+        insert into t_order
+           (<include refid="Orders_Insert_Column_List"/>)
+        values
+        <foreach collection="data" item="item" separator=",">
+            (#{item.userId},
+             #{item.status}
+            )
+        </foreach>
+
+    </insert>
+    <insert id="insertOrderListContainOrderId">
+        insert into t_order
+        (<include refid="Orders_All_Column_List"/>)
+        values
+        <foreach collection="data" item="item" separator=",">
+            (
+            #{item.orderId},
+            #{item.userId},
+            #{item.status}
+            )
+        </foreach>
+    </insert>
+
+    <delete id="deleteOrders">
+        delete
+        from t_order
+       <where>
+            <if test="userId!=null">
+            <!--and 加前不能加后，加前面会自动去掉加后面去不掉-->
+              and  user_id = #{userId}
+            </if>
+            <if test="orderId!=null">
+              and  order_id = #{order_id}
+            </if>
+       </where>
+    </delete>
+
+
+</mapper>
