@@ -27,3 +27,9 @@
 - 膜拜萧大佬
 
 ## 参考资料
+- [Apache ShardingSphere ](https://shardingsphere.apache.org/index_zh.html)
+- [ShardingSphere-Proxy 分库分表 简单示例](https://blog.csdn.net/github_35735591/article/details/110726978?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165053479316782248525421%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=165053479316782248525421&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~times_rank-10-110726978.nonecase&utm_term=sharding&spm=1018.2226.3001.4450)
+- [使用 ShardingSphereDataSource](https://shardingsphere.apache.org/document/5.0.0-alpha/cn/user-manual/shardingsphere-jdbc/usage/sharding/yaml/)
+- [分片配置ShardingSphere官网参考](https://shardingsphere.apache.org/document/5.0.0-alpha/cn/user-manual/shardingsphere-jdbc/configuration/yaml/sharding/)
+- [ShardingSphere的分布式事务](https://www.cnblogs.com/dalianpai/p/14001823.html)
+- [ShardingSphere RAW JDBC 分布式事务 Atomikos XA 代码示例](https://xie.infoq.cn/article/75196b1dfdc0c71b8d66391b2)
