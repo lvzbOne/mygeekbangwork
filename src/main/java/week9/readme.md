@@ -6,8 +6,8 @@
 > - 尝试将客户端动态代理改成 AOP，添加异常处理；
 > - 尝试使用 Netty+HTTP 作为 client 端传输方式。
 
-TODO:
-
+### 作业完成情况说明
+- 跟着示例代码理解了下RPC的原理，这周有点琐事作业没有做完。 [代码地址](https://github.com/lvzbOne/mygeekbangwork/tree/master/rpc)
 
 ## 7.（必做）
 > 7.（必做）结合 dubbo+hmily，实现一个 TCC 外汇交易处理，代码提交到 GitHub:
