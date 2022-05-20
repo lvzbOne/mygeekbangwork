@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatis_cache.mapper.BscDictInfoTestMapper">
+
+    <!-- 这个cache 是关键 mybatis自带的缓存 -->
+    <!--
+        <cache eviction="LRU" flushInterval="100000" readOnly="true" size="1024"/>
+    -->
+
+    <!--用mybatis 整合第三方框架 ehcache 做二级缓存用法-->
+    <!--    <cache type='org.mybatis.caches.ehcache.EhcacheCache'>
+            <property name='timeToIdleSeconds' value='3600'/>
+
+            <property name='timeToLiveSeconds' value='3600'/>
+
+            &lt;!&ndash; 同ehcache参数maxElementsInMemory&ndash;&gt;
+
+            <property name='maxEntriesLocalHeap' value='1000'/>
+
+            &lt;!&ndash; 同ehcache参数maxElementsOnDisk &ndash;&gt;
+
+            <property name='maxEntriesLocalDisk' value='100000'/>
+
+            <property name='memoryStoreEvictionPolicy' value='LRU'/>
+        </cache>-->
+
+    <!-- 多个命名空间缓存共享 级联标签 cache-ref 指定namespace即可 -->
+    <!--<cache-ref namespace=""/> -->
+
+    <sql id="BseColumn">
+        dict_id
+        ,
+        dict_name,
+        dict_sitm_id,
+        dict_sitm_name,
+        suse_flag,
+        disp_orde,
+        memo
+    </sql>
+
+    <!--可以通过设置useCache来规定这个sql是否开启缓存，ture是开启，false是关闭,刷新缓存：flushCache="true"  useCache="true"-->
+    <select id="selectAll" resultType="com.example.mybatis_cache.bean.BscDictInfoTestDO">
+        select *
+        from bsc_dict_info_test
+    </select>
+
+    <select id="selectByDictId" resultType="com.example.mybatis_cache.bean.BscDictInfoTestDO">
+        select
+        <include refid="BseColumn"/>
+        from bsc_dict_info_test
+        where dict_id = #{dictId}
+    </select>
+
+    <update id="updateDataInfo" parameterType="com.example.mybatis_cache.bean.BscDictInfoTestDO">
+        update bsc_dict_info_test
+        set memo = #{memo}
+        where dict_id = #{dictId}
+    </update>
+
+
+    <delete id="deleteByDictIds">
+        delete
+        from bsc_dict_info_test
+        <where>
+            dictId in
+            <if test="data!=null and data.size>0">
+                <foreach collection="data" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </delete>
+
+
+</mapper>
