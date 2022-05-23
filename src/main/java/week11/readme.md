@@ -9,6 +9,10 @@
 
 ## 5.（选做）命令行下练习操作 Redis 的各种基本数据结构和命令。
 
+> 可以参考一下网上文档
+
+- [Redis 命令参考](http://redisdoc.com/index.html)
+
 ## 7.（选做）spring 集成练习:
 
 > - 实现 update 方法，配合 @CachePut
@@ -22,8 +26,20 @@
 
 ## 8.（必做）基于 Redis 封装分布式数据操作：
 
+> - 在 Java 中实现一个简单的分布式锁；
+> - 在 Java 中实现一个分布式计数器，模拟减库存。
+
+### 作业完成说明
+
+- 代码地址[基于 Redis 封装分布式数据操作](https://github.com/lvzbOne/mygeekbangwork/tree/master/homework/redis/redis-lock)
+
 ## 9.（必做）基于 Redis 的 PubSub 实现订单异步处理
 
+### 作业完成说明
+
+- 代码地址[Redis 的发布订阅模式](https://github.com/lvzbOne/mygeekbangwork/tree/master/homework/redis/redis-pubsub)
+
 ## 第十一周总结
+![在这里插入图片描述](https://img-blog.csdnimg.cn/5e1cd644c2f5463cb0989c5834f7a978.png)
 
 ## 参考资料
