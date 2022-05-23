@@ -706,3 +706,4 @@ Could not read JSON: Cannot construct instance of `com.example.mybatis_cache.bea
 - [spring cache 学习 —— @Cacheable 使用详解](https://www.cnblogs.com/coding-one/p/12401630.html)
 - [Spring Boot2.X 自定义Redis的cacheManager，保存Json格式到Redis](https://blog.csdn.net/caojidasabi/article/details/83059642?spm=1001.2101.3001.6650.19&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-19-83059642-blog-113842645.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-19-83059642-blog-113842645.pc_relevant_default&utm_relevant_index=20)
 - [SpringBoot中使用Redis实现缓存](https://www.jianshu.com/p/345b188c7ef8)
+- [Spring使用Cache](https://www.cnblogs.com/huojg-21442/articles/8108785.html)

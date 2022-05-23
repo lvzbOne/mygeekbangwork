@@ -13,6 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -103,5 +109,33 @@ class BscDictServiceImplTest {
 
         // 8. 关闭缓存管理器
         cacheManager.shutdown();
+    }
+
+    @Test
+    void compareTest() {
+        List<Character> characterList = new ArrayList<>();
+
+
+        // 方式一 lambda写法
+        Collections.sort(characterList, (o1, o2) -> o1 - o2);
+
+        // 方式二 匿名内部类
+        Collections.sort(characterList, new Comparator<Character>() {
+            @Override
+            public int compare(Character o1, Character o2) {
+                return o1 - o2;
+            }
+        });
+
+        // 方式三 Stream流 写法 默认值排序
+        characterList = characterList.stream().sorted().collect(Collectors.toList());
+
+        // 方式三 Stream流 写法 同上
+        characterList = characterList.stream().sorted((o1, o2) -> o1-o2).collect(Collectors.toList());
+
+        // 方式三 Stream流 写法逆序
+        characterList = characterList.stream().sorted(Comparator.comparing(Character::charValue).reversed()).collect(Collectors.toList());
+
+
     }
 }
