@@ -60,5 +60,41 @@ public class CollectingIntoMaps {
             return union;
         }));
         System.out.println("countryLanguageSet: " + countryLanguageSets);
+
+        // TODO hashMap按照value值进行排序 返回LinkedHashMap
+        /**
+         * Java Map按值排序的常见思路是：
+         *
+         * 1、 将map中的entry放到List中
+         *
+         * 2、 对List中的entry通过比较器按值排序
+         *
+         * 3 、将排序后的entry放到linkedhashmap中
+         */
+        Map<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("a", 1);
+        hashMap.put("b", 2);
+        hashMap.put("f", 5);
+        hashMap.put("d", 4);
+        hashMap.put("c", 3);
+        hashMap.put("b1", 52);
+        hashMap.put("ef", 15);
+        hashMap.put("n3", 34);
+        hashMap.put("ed", 13);
+
+        hashMap.entrySet().forEach(item -> {
+            System.out.println(item.getKey() + " : " + item.getValue());
+        });
+
+        System.out.println("========================================");
+
+        LinkedHashMap<String, Integer> linkedHashMap = hashMap.entrySet()
+                .stream()
+                .sorted((o1, o2) -> o1.getValue().compareTo(o2.getValue()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
+
+        linkedHashMap.entrySet().forEach(item -> {
+            System.out.println(item.getKey() + " : " + item.getValue());
+        });
     }
 }
