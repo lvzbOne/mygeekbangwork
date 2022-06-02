@@ -31,6 +31,11 @@
 
 ## 实操演示
 
+> 主要演示：
+> - master->slave1(slave1作为slave2的主节点)->slave2
+> - 设置主从后 master 新增key value,slave1,slave2自动同步key。
+> - 设置主从后，master 可写可读，从节点只读。
+
 ### （一）redis主从
 
 > redis主从的作用和mysql的主从复制极其类似。redis主从的特点是：**从节点只读、异步复制**。设置主从的命令如：`SLAVEOF 127.0.0.1 6379`
@@ -179,8 +184,6 @@ repl_backlog_histlen:56
 
 ```
 
-### （二）redis sentinel(哨兵)模式
-
 ## 踩坑
 
 - 启动报错
@@ -196,6 +199,4 @@ repl_backlog_histlen:56
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/ccd28ba7e46a4113a6b19037a91d50de.png)
 
-- 解决：
-
-## 参考资料
+- 解决：bind ip 的问题
