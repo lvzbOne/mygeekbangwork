@@ -12,6 +12,11 @@ public class Join {
          *    那么 当i=20时主线程持有 oo对象锁阻塞等待子线程执行完毕他再继续执行，
          *    但是因为主线程没有释放oo对象锁，导致子线程执行时获取不到oo的对象锁一直等待主线程释放，就进不了线程体，造成相互等待然后就是死锁了
          *
+         *    3.出现java.lang.IllegalMonitorStateException错误，由以下情况导致：
+         * 1>当前线程不含有当前对象的锁资源的时候，调用obj.wait()方法;
+         * 2>当前线程不含有当前对象的锁资源的时候，调用obj.notify()方法。
+         * 3>当前线程不含有当前对象的锁资源的时候，调用obj.notifyAll()方法。
+         *
          */
         Object oo = new Object();
 
@@ -24,8 +29,8 @@ public class Join {
             for (int i = 0; i < 100; i++) {
                 if (i == 20) {
                     try {
-                        oo.wait(0);
-                        thread1.join();
+                        oo.wait(0);//wait(0)=wait() 必须显示唤醒否则一致阻塞等待唤醒
+                        //thread1.join();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -57,7 +62,7 @@ class MyThread extends Thread {
                 System.out.println(name + i);
             }
             // 放synchronized 内这里就正常
-            oo.notify();
+            //  oo.notify();
         }
         // 放synchronized 外这里就抛异常
         // oo.notify();
